@@ -43,7 +43,7 @@ You'll have to follow the steps below:
 1. Download Pyton XENApi.py from https://github.com/xapi-project/xen-api/tree/master/scripts/examples/python. Please use the last version, becaus of ssl support changes in pyton
 1. Copy file XENApi.py to directory /usr/local/lib/python
 1. Copy citrix.xenserver.py to you external script path and set userrights (chmod 755) (Generally in /usr/lib/zabbix/externalscripts).
-1. Execute '$ python acesso.py' (To generate credentials.txt (username and password))
+1. Execute `$ python acesso.py` (To generate credentials.txt (username and password))
 
 ## Examples
 List all CPUs:<br>
