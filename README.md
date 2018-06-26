@@ -76,19 +76,15 @@ Follow all steps of the Building Testing and:
 
 ## Some knowing error
 
-**DNS:**
-
+**DNS:**<br>
 The XENApi functions returns the short name of xencluster server. So, if you are not have dns domain in search list, the resultion 
-do not work. If you do not have a DNS server configured on zabbix or the test server you can add the manual entries in the /etc/hosts file, like this:
-
+do not work. If you do not have a DNS server configured on zabbix or the test server you can add the manual entries in the /etc/hosts file, like this:<br>
 *XEN-HOST-IP myserver01*
 
 
-**Execution and filesystem rights for cache file:**
-
+**Execution and filesystem rights for cache file:**<br>
 If you test this script as root it will be created an cachefile. So, if zabbix later start this script as user user zabbix or 
 www-data, the old cache file (creates by user root) can not open for writing. This script will exit with error.
 
 ## Important
-
 If you test this script by executing as root it will be created an cachefile as user root. So, if zabbix later start this script as user user zabbix or www-data, the old cache file (creates by user root) can not open for writing. This script will exit with error!!!!!!!!!
