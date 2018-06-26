@@ -6,8 +6,8 @@ The changes makes are to optimize the access and security in environments with a
 
 `Marllus Lustosa - marlluslustosa@gmail.com`<br>
 `Fabrício Silva  - fabricio.silva@sti.ufc.br`<br>
-`Version:   2.0`<br>
-`Change:     25. June 2018`<br>
+`Version: 2.0`<br>
+`Change: 25. June 2018`<br>
 
 ## Description
 
