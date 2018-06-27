@@ -41,6 +41,7 @@ tempvmfile   = '/tmp/xenapi.vmperformance.tmp'
 tempsrfile   = '/tmp/xenapi.srlist.tmp'
 '''
 maxage       = 60
+arq_cred     = /location/ofthe/archive/credentials.txt
 
 """
 #################################################################################################################################
@@ -431,8 +432,8 @@ def main(argv):
             xenmaster = arg
         elif opt == '-u': 
             #username = arg
-            if os.path.exists('./credentials.txt'):
-                cred = open("credentials.txt", "r")
+            if os.path.exists(arq_cred):
+                cred = open(arq_cred, "r")
                 lista = cred.readlines()
                 username = acesso.decode(lista[0])
             else:
