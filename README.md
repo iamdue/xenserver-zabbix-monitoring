@@ -1,6 +1,6 @@
 ## Introduction
 
-This script is an fork of the [original](https://share.zabbix.com/cat-app/cluster/monitoring-citrix-xenserver-host-and-vms-based-on-pyton-xenapi) that is designed to monitor pools of xenserver hosts through zabbix.
+This script is an fork of the [original](https://share.zabbix.com/cat-app/cluster/monitoring-citrix-xenserver-host-and-vms-based-on-pyton-xenapi) written by Robert Gladewitz, that is designed to monitor pools of xenserver hosts through zabbix.
 
 The changes makes are to optimize the access and security in environments with a large number of hosts / pools.
 
