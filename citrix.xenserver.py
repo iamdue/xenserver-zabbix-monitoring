@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# coding=utf-8
 """
 Autor:      Robert Gladewitz
 Version :   1.0
@@ -41,7 +42,7 @@ tempvmfile   = '/tmp/xenapi.vmperformance.tmp'
 tempsrfile   = '/tmp/xenapi.srlist.tmp'
 '''
 maxage       = 60
-arq_cred     = /location/ofthe/archive/credentials.txt
+arq_cred     = '/etc/credentials/credentials.txt'
 
 """
 #################################################################################################################################
@@ -424,25 +425,19 @@ def main(argv):
         print sys.argv[0], " -m <master> -u <username> -p <password> -c <command> -f <filter> -t <host|vm> -H <hostname|vmname> [-a <maxage>]"
         sys.exit(255)
 
+    arq_cred     = '/etc/credentials/credentials.txt'
+
     for opt, arg in opts:
         if opt == '-h':
             print sys.argv[0], " -m <master> -u <username> -p <password> -c <command> -f <filter> -t <host|vm> -H <hostname|vmname> [-a <maxage>]"
             sys.exit(0)
         elif opt == '-m':
             xenmaster = arg
-        elif opt == '-u': 
-            #username = arg
-            if os.path.exists(arq_cred):
-                cred = open(arq_cred, "r")
-                lista = cred.readlines()
-                username = acesso.decode(lista[0])
-            else:
-                print "Create the credentials file!"
-                sys.exit(0)
+	elif opt == '-u': 
+            username = arg
         elif opt == '-p':
             #bypass credenciais - ele ja tem o valor do password
-            #password = arg
-            password = acesso.decode(lista[1])
+            password = arg            
         elif opt == '-a':
             maxage = arg
         elif opt == '-c':
@@ -451,9 +446,19 @@ def main(argv):
             filter = arg
         elif opt == '-t':
             type = arg
-        elif opt == '-H':
+	elif opt == '-H':
             host = arg
+	    arq_cred = '/etc/credentials/' + host + '/credentials.txt'
 
+    if os.path.exists(arq_cred):
+        cred = open(arq_cred, "r")
+        lista = cred.readlines()
+        username = acesso.decode(lista[0])
+	password = acesso.decode(lista[1])
+    else:
+        print "Create the credentials file!"
+        sys.exit(0)
+        
     if (xenmaster == '' or username == '' or password == '' or command == '' or filter == '' or type == '' or host == '' ):
         print sys.argv[0], " -m <master> -u <username> -p <password> -c <command> -f <filter> -t <host|vm> -H <hostname|vmname> [-a <maxage>] (Parameter missing)"
 	sys.exit(3)
@@ -463,6 +468,7 @@ def main(argv):
     temphostfile = '/tmp/xenapi.hostperformance.tmp.'+ xenmaster
     tempvmfile   = '/tmp/xenapi.vmperformance.tmp.'+ xenmaster
     tempsrfile   = '/tmp/xenapi.srlist.tmp.'+ xenmaster
+    
 
     # check for refresh data
     ### COMO ERA ANTES SEM A REESCRITA
