@@ -1,6 +1,14 @@
 ## Introduction
 
-This script is an fork of the [original](https://share.zabbix.com/cat-app/cluster/monitoring-citrix-xenserver-host-and-vms-based-on-pyton-xenapi) written by Robert Gladewitz, that is designed to monitor pools of xenserver hosts through zabbix.
+This script is an fork of the Marllus Lustosa (https://gitlab.com/mlustosa/xenserver-zabbix-monitoring) which is fork of [original](https://share.zabbix.com/cat-app/cluster/monitoring-citrix-xenserver-host-and-vms-based-on-pyton-xenapi) written by Robert Gladewitz, that is designed to monitor pools of xenserver hosts through zabbix.
+
+__________________________________________________________________________
+Important:
+Modified to read from /etc/credentials/[hostnameofXENHOST]/credentials.txt.
+Create credentials with acesso.py as the original script.
+Copy it to e.g.: /etc/credentials/xenserver1/credentials.txt
+__________________________________________________________________________
+
 
 The changes makes are to optimize the access and security in environments with a large number of hosts / pools.
 
